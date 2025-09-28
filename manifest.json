@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Short Content Blocker",
+    "version": "0.1",
+
+    "web_accessible_resources": [{
+        "resources": ["scripts/page_hook.js"],
+        "matches": ["*://*.instagram.com/*"]
+    }],
+
+    "content_scripts": [
+        {
+            "matches": ["*://*.instagram.com/*"],
+            "js": ["scripts/redirect.js"],
+            "run_at": "document_start"
+        }
+    ]
+}
