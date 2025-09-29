@@ -29,14 +29,6 @@ function enforce(target_url) {
     'use strict';
     const DIRECT_URL = 'https://www.instagram.com/direct/inbox/';
     
-    window.addEventListener('message', (ev) => {
-        if (ev.source !== windows)
-            return;
-        if (!ev.data || ev.data.type !== 'DG_NAV')
-            return;
-        enforce(DIRECT_URL)
-    })
-
     document.addEventListener('click', (ev) => {
         const link_clicked = ev.target && ev.target.closest && ev.target.closest('a[href]');
         if (!link_clicked)
