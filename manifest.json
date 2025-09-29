@@ -3,11 +3,6 @@
     "name": "Short Content Blocker",
     "version": "0.1",
 
-    "web_accessible_resources": [{
-        "resources": ["scripts/page_hook.js"],
-        "matches": ["*://*.instagram.com/*"]
-    }],
-
     "content_scripts": [
         {
             "matches": ["*://*.instagram.com/*"],

@@ -1,11 +1,4 @@
-function injectPageHook() {
-    const s = document.createElement('script');
-    s.src = chrome.runtime.getURL('scripts/page_hook.js')
-}
-
-
 function isDisallowedPath(pathname) {
-    console.debug("CHECK RAN?")
     if (pathname === '/')
         return true;
     if (pathname.startsWith('/reels'))
@@ -36,15 +29,6 @@ function enforce(target_url) {
     'use strict';
     const DIRECT_URL = 'https://www.instagram.com/direct/inbox/';
     
-    // 
-    (function injectPageHook() {
-        console.debug("page hooked")
-        const s = document.createElement('script');
-        s.src = chrome.runtime.getURL('scripts/page_hook.js'); 
-        (document.head || document.documentElement).appendChild(s);
-        s.remove();
-    })();
-
     window.addEventListener('message', (ev) => {
         if (ev.source !== windows)
             return;
@@ -54,12 +38,11 @@ function enforce(target_url) {
     })
 
     document.addEventListener('click', (ev) => {
-        // find the the link that was clicked
-        const a = ev.target && ev.target.closest && ev.target.closest('a[href]');
-        if (!a)
+        const link_clicked = ev.target && ev.target.closest && ev.target.closest('a[href]');
+        if (!link_clicked)
             return;
 
-        const url = new URL(a.href, location.href);
+        const url = new URL(link_clicked.href, location.href);
         if (url.origin !== location.origin)
             return;
         
@@ -71,6 +54,5 @@ function enforce(target_url) {
         }
     }, true);
      
-    
     enforce(DIRECT_URL);
 })();
