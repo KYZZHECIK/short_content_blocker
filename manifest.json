@@ -2,11 +2,15 @@
     "manifest_version": 3,
     "name": "Short Content Blocker",
     "version": "0.1",
-
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "avazaga0@gmail.com"
+        }
+    },
     "content_scripts": [
         {
             "matches": ["*://*.instagram.com/*"],
-            "js": ["scripts/redirect.js"],
+            "js": ["redirect.js"],
             "run_at": "document_start"
         }
     ]
