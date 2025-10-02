@@ -10,8 +10,8 @@ Personal project for keeping myself in check.
 This add-on keeps social media usage intentional. In case of Instagram, it allows messaging but blocks other distractions (Reels, Explore, Main feed, etc.) by redirecting to **/direct/inbox**.  
 Support for YouTube Shorts is not here yet, but the plan is to simply ban all access to youtube shorts.
 
-### From AMO
-- Link.
+### Install
+From the Firefox add-ons market place. [Link](https://addons.mozilla.org/en-US/firefox/addon/short-content-blocker/)
 
 ---
 
